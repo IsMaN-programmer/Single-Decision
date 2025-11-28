@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="SvidKing Studio" />
+        <meta
+            name="description"
+            content="Single Decision is an interactive game where every choice shapes your destiny." />
+        <meta
+            name="keywords"
+            content="interactive game, decision making, moral choices, destiny game, Single Decision, story game, choose your path, psychological game, branching narrative, choice-based gameplay" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes" />
+        <title>Single Decision</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" href="img/gamer.ico" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="img/city.png" />
+                </div>
+
+                <!-- Центр: бургер + надпись (надпись только на мобильных) -->
+                <div class="menu-center">
+                    <div class="menu-btn">&#9776;</div>
+                    <span class="menu-title">Single Decision</span>
+                </div>
+
+                <!-- Меню -->
+                <ul class="menu">
+                    <li><a href="#" id="home-btn">Play</a></li>
+                    <li><a href="#" id="projects-btn">Projects</a></li>
+                    <li><a href="#" id="description-btn">Description</a></li>
+                    <li><a href="#" id="contacts-btn">Contacts</a></li>
+                </ul>
+
+                <div class="logo2">
+                    <img src="img/city.png" />
+                </div>
+            </nav>
+        </header>
+
+        <!-- Секция Play/Game -->
+        <section id="home" class="section video-section">
+            <div class="video-background">
+                <video autoplay muted loop>
+                    <source src="video/Forza%20DreamScane.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="section-content">
+                <h1>Single Decision</h1>
+                <p>Choose wisely. One click can change everything.</p>
+                <a href="#" class="start-button">Start Game</a>
+            </div>
+
+            <!-- Игровой экран -->
+            <div class="game-screen" id="gameScreen">
+                <div class="image-container">
+                    <img src="img/photo_1_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_2_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_3_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_4_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_5_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_2025-11-20_17-42-28%20(6).jpg" />
+                    <img src="img/photo_2025-11-20_17-42-28%20(7).jpg" />
+                    <img src="img/photo_2025-11-20_17-42-28%20(8).jpg" />
+                    <img src="img/photo_6_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_7_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_8_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_9_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_10_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_11_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_12_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_13_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_14_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_15_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_16_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_17_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_18_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_19_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_20_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_21_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_22_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_23_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_24_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_25_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_26_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_27_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_28_2025-11-26_17-36-51.jpg">
+                    <img src="img/photo_29_2025-11-26_17-36-51.jpg">
+                </div>
+
+                <!-- Нижняя панель -->
+                <div class="bottom-ui">
+                    <div class="game-comment" id="gameComment">Зазвонил будильник ваши действие...</div>
+                    <div class="choice-buttons" id="choiceButtons">
+                        <button class="choice" id="nextBtn">Продолжить</button>
+                    </div>
+
+                    <div class="decision-timer">
+                        <div class="timer-bar" id="timerBar"></div>
+                    </div>
+                </div>
+
+                <!-- Верхнее меню -->
+                <div class="game-menu">
+                    <button id="pauseBtn">⏸ Pause</button>
+                </div>
+
+                <!-- Модальное окно паузы -->
+                <div class="pause-modal" id="pauseModal">
+                    <div class="pause-content">
+                        <h2>Game Paused</h2>
+                        <button id="resumeBtn">▶ Resume</button>
+                        <button id="exitBtn">🏠 Exit</button>
+                    </div>
+                </div>
+
+                <!-- Звук запуска игры -->
+                <audio id="startSound" src="audio/start.mp3"></audio>
+            </div>
+        </section>
+
+        <!-- Секция Projects -->
+        <section id="projects" class="section" style="display: none">
+            <h2>Projects</h2>
+            <p>Здесь будут ваши проекты, описание и примеры.</p>
+        </section>
+
+        <!-- Секция Description -->
+        <section id="description" class="section" style="display: none">
+            <h2>Description</h2>
+            <p>Single Decision — это интерактивная игра, где каждое решение влияет на судьбу.</p>
+        </section>
+
+        <!-- Секция Contacts -->
+        <section id="contacts" class="section" style="display: none">
+            <h2>Contacts</h2>
+            <p>Свяжитесь с нами: svidking@example.com</p>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,410 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Навигация */
+nav {
+  background-color: #464646;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Логотипы */
+.logo,
+.logo2 {
+  display: flex;
+}
+
+.logo img {
+  width: 70px;
+  margin-right: 20px;
+}
+
+.logo2 img {
+  width: 70px;
+  margin-left: 20px;
+  transform: scaleX(-1);
+}
+
+/* Центр навигации: бургер + надпись */
+.menu-center {
+  display: none;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff5722;
+  letter-spacing: 1px;
+  display: none; /* по умолчанию скрыта */
+}
+
+/* Меню на ПК */
+.menu {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  margin-left: 55px;
+}
+
+nav li {
+  margin: 15px;
+  list-style-type: none;
+}
+
+nav a {
+  color: white;
+  padding: 15px;
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: #565656;
+  border-radius: 10px;
+}
+
+/* Видео-заставка */
+.video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px);
+  transform: scale(1.1);
+}
+
+/* Стартовая секция */
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+}
+
+.section-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.section-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.section-content a {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #ff5722;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.section-content a:hover {
+  background-color: #e64a19;
+}
+
+/* Анимация исчезновения */
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+/* Игровой экран */
+.game-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Контейнер для изображений */
+.image-container {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Изображения */
+.game-image,
+.result-scene {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  transition: opacity 1s ease;
+}
+
+.game-image.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.result-scene {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.result-scene.show {
+  opacity: 1;
+  position: static;
+  pointer-events: auto;
+}
+
+/* Нижняя панель */
+.bottom-ui {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+/* Комментарий */
+.game-comment {
+  position: static;
+  transform: none;
+  font-size: 16px;
+  margin-bottom: 8px;
+  max-width: 100%;
+  text-align: center;
+  color: white;
+}
+
+/* Кнопки выбора */
+.choice-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 8px;
+}
+
+.choice {
+  flex: 1;
+  margin: 0 5px;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.choice:hover {
+  background-color: #e64a19;
+}
+
+/* Таймер */
+.decision-timer {
+  position: static;
+  width: 100%;
+  height: 6px;
+  margin-top: 4px;
+  background-color: white;
+}
+
+.timer-bar {
+  height: 100%;
+  width: 100%;
+  background-color: limegreen;
+  transition: width 10s linear;
+}
+
+/* Меню паузы */
+.game-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.game-menu button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Модальное окно паузы */
+.pause-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.pause-content {
+  background-color: #222;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+}
+
+.pause-content button {
+  margin: 15px;
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pause-content button:hover {
+  background-color: #e64a19;
+}
+
+/* --- Мобильная версия --- */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .menu-title {
+    display: inline; /* показываем только на мобильных */
+    white-space: nowrap;
+  }
+
+  /* Контейнер для бургер-кнопки и надписи */
+  .menu-center {
+    position: relative; /* чтобы меню позиционировалось относительно этого блока */
+    flex-direction: column;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  /* Меню открывается под бургером */
+  .menu {
+    position: absolute;
+    top: 100%; /* сразу под .menu-center */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #464646;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+  nav ul {
+    margin-left: 0;
+  }
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu li a {
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+  }
+}
+.section-content h1 {
+  font-size: 32px;
+}
+
+.section-content p {
+  font-size: 16px;
+}
+
+.choice {
+  font-size: 14px;
+}
